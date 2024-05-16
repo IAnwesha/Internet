@@ -1,9 +1,6 @@
-
 import { createServer } from 'node:http';
-
 const hostname = '127.0.0.1';
 const port = 3000;
-
 const server = createServer((req, res) => {
   console.log('Received request...', req.url, req.method);
   
@@ -12,10 +9,7 @@ const server = createServer((req, res) => {
       res.statusCode = 200;
       res.setHeader('Content-Type', 'text/plain');
       res.setHeader('Access-Control-Allow-Origin', "*");
-
-
       res.end("Anwesha");
-      // console.log(res)
     }
     if(req.method == 'OPTIONS') {
       res.statusCode = 200;
@@ -26,18 +20,14 @@ const server = createServer((req, res) => {
       res.end('OK');
     }
     if(req.method == 'POST') {
-      // console.log(req.body());
       console.log('post method...')
       res.statusCode = 200;
       res.setHeader('Content-Type', 'text/plain');
       res.setHeader('Access-Control-Allow-Origin', "*");
 
-
       res.end(JSON.stringify({surname: "Sahu"}));
-      // console.log(res)
     }
   }
-  
 });
 
 server.listen(port, hostname, () => {
